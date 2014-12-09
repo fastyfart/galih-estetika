@@ -1,0 +1,60 @@
+.nav-sidebar {
+  width: 100%;
+  padding: 8px 0;
+  border-right: 1px solid #ddd;
+  margin-left : 0px;
+  padding-left: 0px;
+}
+
+.nav-sidebar h4{
+  border-right: 2px solid #4285f4;
+  padding: 8px;
+  color: #4285f4;
+}
+
+.nav-sidebar a {
+  color: #333;
+  -webkit-transition: all 0.08s linear;
+  -moz-transition: all 0.08s linear;
+  -o-transition: all 0.08s linear;
+  transition: all 0.08s linear;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.nav-sidebar li a:hover {
+  border-left: 1px solid #4b5d95;
+  border-right: 1px solid #4b5d95;
+  background-color : rgba(0, 0, 0, 0.1);
+  color : black;
+  border-radius : 0px;
+}
+
+.nav-sidebar .active a {
+  cursor: default;
+  border-left : 2px solid blue;
+  color: #a2a2a2;
+  border-radius : 0px;
+}
+.nav-sidebar .active a:hover {
+  background-color: #428bca;
+}
+.nav-sidebar .text-overflow a,
+.nav-sidebar .text-overflow .media-body {
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/* Right-aligned sidebar */
+.nav-sidebar.pull-right {
+  border-right: 0;
+  border-left: 1px solid #ddd;
+}
+.nav-sidebar.pull-right a {
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}

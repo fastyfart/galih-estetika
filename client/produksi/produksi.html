@@ -1,0 +1,114 @@
+<template name="produksi">
+  <div class="row">
+    <button class="btn btn-info" id="addProduct"> Tambah produk </button>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 well">
+      <h4 class="text-muted">
+        Proses Hari Ini <br /><br />
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title">Pengolahan Bahan</h3>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="col-sm-1">In </th>
+                    <th>Bahan Mentah</th>
+                    <th class="col-sm-1">Out</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each bahanList}}
+                  {{#if bahanMentah bahan}}
+                  <tr>
+                    <td><input type="text" class="form-control in" placeholder="{{unit}}"> </td>
+                    <td>{{name}}</td>
+                    <td><input type="text" class="form-control out" placeholder="{{unit}}"> </td>
+                  </tr>
+                  {{/if}}
+                  {{/each}}
+                </tbody>
+              </table>
+              <div class="panel-footer" >
+                <button type="button" class="btn btn-primary pull-right" id="saveBahanMentah">Simpan</button>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title">Proses Produksi</h3>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="col-sm-1">In </th>
+                    <th>Bahan Olah</th>
+                    <th class="col-sm-1">Out</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each bahanList}}
+                  {{#if bahanOlah bahan}}
+                  <tr>
+                    <td><input type="text" class="form-control in" placeholder="{{unit}}"> </td>
+                    <td>{{name}}</td>
+                    <td><input type="text" class="form-control out" placeholder="{{unit}}"> </td>
+                  </tr>
+                  {{/if}}
+                  {{/each}}
+                </tbody>
+              </table>
+              <div class="panel-footer" >
+                <button type="button" class="btn btn-primary pull-right" id="saveBahanOlah">Simpan</button>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </h4>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 well">
+      {{>productsList}}
+    </div>
+  </div>
+
+  <div class="hide" id="addProductForm" >
+    <div class="form-group">
+      <input type="text" class="form-control" id="product" placeholder="Nama Produk">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="unit" placeholder="Satuan">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="stok" placeholder="Stock Awal">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary pull-right" id="saveProduct">Simpan</button>
+    </div>
+  </div>
+</template>
+
+<template name="productsList" >
+  <h4 class="text-muted">Daftar Produk</h4>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Produk</th>
+        <th>Stok</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each productsList}}
+      <tr>
+        <td>{{product}}</td>
+        <td>{{stok}} {{unit}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

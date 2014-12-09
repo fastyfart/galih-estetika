@@ -1,0 +1,36 @@
+.popover{
+  display:block !important;
+  max-width: 500px!important;
+  width:auto;
+}
+
+.row{
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.row.animate {
+  opacity: 0;
+}
+
+.serelek-content{
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.serelek-content.animate {
+  opacity: 0;
+}
+
+#serelek{
+  cursor : pointer;
+}
+.serelekNd-content{
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.serelekNd-content.animate {
+  opacity: 0;
+}
+
+#serelekNd{
+  cursor : pointer;
+}

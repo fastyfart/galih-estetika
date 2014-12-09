@@ -1,0 +1,147 @@
+<template name="request" >
+  {{#Animate}}
+  <div class="row animate">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 well">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="panel panel-info" >
+            <div class="panel-heading" >
+              <h4 class="panel-title">Konsumen
+                <small> <span class="badge pull-right" id="serelek">Open</span> </small>
+              </h4>
+            </div>
+            {{#if serelek}}
+            {{#Animate}}
+            <div class="panel-body serelek-content animate">
+              <form class="form-inline" role="form" >
+                <button type="button" id="addCustomer" class="btn btn-xs btn-info">Tambah</button>
+                <input type="text" id="find" class="form-control" placeholder="Cari ... ">
+              </form>
+              {{>customersList}}
+            </div>
+            {{/Animate}}
+            {{/if}}
+          </div>
+        </div>
+        {{>makeRequest}}
+      </div>
+    </div>
+
+    {{>requestsList}}
+  </div>
+  {{/Animate}}
+
+  <div class="hide" id="addCustomerForm">
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <input type="text" class="form-control" id="customer" placeholder="Konsumen">
+        </div>
+      </div> <br /><br />
+      <div class="form-group" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <input type="text" class="form-control" id="cp" placeholder="Kontak">
+        </div>
+      </div> <br /><br />
+      <div class="form-group" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <textarea class="form-control" id="address" placeholder="Alamat"></textarea>
+        </div>
+      </div> <br /><br />
+      <div class="form-group" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <button type="button" class="btn btn-primary" id="saveNewCustomer">Simpan</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</template>
+
+<template name="customersList">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Konsumen</th>
+        <th>Kontak</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each customers}}
+      <tr>
+        <td>{{customer}}</td>
+        <td>{{contact}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="makeRequest" >
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+    <div class="panel panel-info" >
+      <div class="panel-heading" >
+        <h3 class="panel-title">Request
+          <small><span class="badge pull-right" id="serelekNd">Open</span></small>
+        </h3>
+      </div>
+      {{#if serelekNd}}
+      <div class="panel-body" >
+        <br />
+        <form class="form-horizontal" role="form" >
+          <div class="form-group" >
+            <label for="customerReq" class="col-sm-3 control-label">Konsumen</label>
+            <div class="col-sm-8" >
+              <select class="form-control" id="customerReq" >
+                {{#each customers}}
+                <option value="{{_id}}">{{customer}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="productReq" class="col-sm-3 control-label">Produk</label>
+            <div class="col-sm-8" >
+              <select class="form-control" id="productReq" >
+                {{#each products}}
+                <option value="{{product}}" >{{product}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="qtyReq" class="col-sm-3 control-label">Jumlah</label>
+            <div class="col-sm-4" >
+              <input class="form-control" id="qtyReq" >
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="noteReq" class="col-sm-3 control-label">Catatan</label>
+            <div class="col-sm-8" >
+              <textarea class="form-control" id="noteReq" rows=3></textarea>
+            </div>
+          </div>
+          <div class="form-group" >
+            <div class="col-sm-8 col-sm-offset-3" >
+              <button class="btn btn-primary pull-right" type="button" id="saveRequest" > Simpan </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="requestsList" >
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 well">
+    {{#each requestsList}}
+      {{#each requests}}
+        <p>
+          {{product}}
+          {{qty}}
+        </p>
+      {{/each}}
+    {{/each}}
+  </div>
+</template>

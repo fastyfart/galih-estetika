@@ -1,0 +1,33 @@
+<template name="sidebar">
+
+	<nav class="nav-sidebar">
+		<h4>Menu</h4>
+		<ul class="nav">
+			{{>adminMenu}}
+			<li class="nav-divider"></li>
+			{{>officeMenu}}
+			<li class="nav-divider"></li>
+			{{>produksiMenu}}
+			<li class="nav-divider"></li>
+		</ul>
+	</nav>
+
+
+</template>
+
+<template name="adminMenu">
+	<li class="{{isActiveRoute regex='config'}}"><a href="/config" id="">Config</a></li>
+	<li class="{{isActiveRoute regex='users'}}"><a href="/users"  id="">Users</a></li>
+	<li class="{{isActiveRoute regex='suppliers'}}"><a href="/suppliers"  id="">Suppliers</a></li>
+</template>
+
+<template name="produksiMenu">
+	<li class="{{isActiveRoute regex='bahan'}}"><a href="/bahan" id="" >Bahan</a></li>
+	<li class="{{isActiveRoute regex='produksi'}}"><a href="/produksi" id="" >Produksi</a></li>
+</template>
+
+<template name="officeMenu" >
+	<li class="{{isActiveRoute regex='request'}}"><a href="/request" id="">Request</a></li>
+	<li class="{{isActiveRoute regex='order'}}"><a href="/order"  id="">Order</a></li>
+	<li class="{{isActiveRoute regex='export'}}"><a href="/export"  id="">Pengiriman</a></li>
+</template>
